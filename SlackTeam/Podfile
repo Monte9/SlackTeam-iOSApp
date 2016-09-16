@@ -9,5 +9,6 @@ target 'SlackTeam' do
   pod 'Alamofire', '~> 3.5.0'
   pod 'MBProgressHUD', '~> 1.0.0'
   pod 'RealmSwift'
+  pod 'AlamofireImage', '~> 2.5'
 
 end

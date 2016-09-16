@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="t9N-fO-am5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,13 +16,97 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MS2-QJ-s6F">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="55" id="ru5-r6-UaU" customClass="UserCell" customModule="SlackTeam" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ru5-r6-UaU" id="h3l-nI-K50">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGn-BU-GK8">
+                                                    <rect key="frame" x="52" y="12" width="315" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alo-Jf-CD8">
+                                                    <rect key="frame" x="52" y="32" width="315" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slackbot" translatesAutoresizingMaskIntoConstraints="NO" id="1Yo-ZK-g12">
+                                                    <rect key="frame" x="12" y="12" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="LWa-5S-fC4"/>
+                                                        <constraint firstAttribute="height" constant="32" id="XKL-bm-sv8"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XGn-BU-GK8" firstAttribute="top" secondItem="1Yo-ZK-g12" secondAttribute="top" id="0lZ-6t-rSM"/>
+                                                <constraint firstItem="1Yo-ZK-g12" firstAttribute="leading" secondItem="h3l-nI-K50" secondAttribute="leading" constant="12" id="Dwb-Mv-k8B"/>
+                                                <constraint firstItem="XGn-BU-GK8" firstAttribute="leading" secondItem="1Yo-ZK-g12" secondAttribute="trailing" constant="8" id="GP3-Mp-CS8"/>
+                                                <constraint firstAttribute="trailing" secondItem="XGn-BU-GK8" secondAttribute="trailing" constant="8" id="Hgj-O3-ZDm"/>
+                                                <constraint firstItem="Alo-Jf-CD8" firstAttribute="bottom" secondItem="1Yo-ZK-g12" secondAttribute="bottom" constant="2" id="Pyz-as-aEj"/>
+                                                <constraint firstItem="Alo-Jf-CD8" firstAttribute="leading" secondItem="1Yo-ZK-g12" secondAttribute="trailing" constant="8" id="QoM-Kg-OzD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Alo-Jf-CD8" secondAttribute="trailing" constant="8" id="SAY-h1-yNK"/>
+                                                <constraint firstItem="1Yo-ZK-g12" firstAttribute="centerY" secondItem="h3l-nI-K50" secondAttribute="centerY" id="xWb-9U-Eyn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="1Yo-ZK-g12" id="orL-98-teC"/>
+                                            <outlet property="userNameLabel" destination="XGn-BU-GK8" id="ECn-oK-veQ"/>
+                                            <outlet property="userTitleLabel" destination="Alo-Jf-CD8" id="XqO-KC-E2t"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MS2-QJ-s6F" secondAttribute="trailing" id="4YQ-o0-z62"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MS2-QJ-s6F" secondAttribute="bottom" id="9Ib-Sx-CFK"/>
+                            <constraint firstItem="MS2-QJ-s6F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Xt-FX-JXQ"/>
+                            <constraint firstItem="MS2-QJ-s6F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="em3-0h-JVX"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="37h-56-rqb"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="MS2-QJ-s6F" id="ola-G4-WRd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.33333333333333" y="321.39333333333332"/>
+            <point key="canvasLocation" x="648.5" y="320.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jVD-hk-Scd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t9N-fO-am5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SdY-MM-XPu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="enj-LU-1zh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pek-6B-wsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117" y="321"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="slackbot" width="600" height="540"/>
+    </resources>
 </document>

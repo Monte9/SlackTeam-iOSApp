@@ -16,7 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Slack RGB" translatesAutoresizingMaskIntoConstraints="NO" id="PBi-N5-TAs">
+                                <rect key="frame" x="37" y="263" width="300" height="140.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4zO-om-N3L"/>
+                                    <constraint firstAttribute="height" constant="140.59999999999999" id="u69-op-4vZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PBi-N5-TAs" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vm6-n9-BtI"/>
+                            <constraint firstItem="PBi-N5-TAs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xwv-F2-0AA"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -25,4 +38,7 @@
             <point key="canvasLocation" x="28.266666666666666" y="355"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Slack RGB" width="1152" height="540"/>
+    </resources>
 </document>
