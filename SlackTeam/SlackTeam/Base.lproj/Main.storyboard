@@ -147,6 +147,9 @@
                                                 <state key="normal" title="Message">
                                                     <color key="titleColor" red="0.1647058824" green="0.18039215689999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="messageUserPressed:" destination="Wfy-iI-bgq" eventType="touchUpInside" id="Ydr-rJ-cXc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BV-fo-xxO">
                                                 <rect key="frame" x="320" y="8" width="40" height="40"/>
@@ -157,33 +160,10 @@
                                                 <state key="normal" title="...">
                                                     <color key="titleColor" red="0.1647058824" green="0.18039215689999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="moreInfoButtonPressed:" destination="Wfy-iI-bgq" eventType="touchUpInside" id="80F-g1-70g"/>
+                                                </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5NC-yT-aTF">
-                                                <rect key="frame" x="8" y="56" width="359" height="60"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6v-B9-7Oz">
-                                                        <rect key="frame" x="8" y="33" width="38" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" red="0.1647058824" green="0.18039215689999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XP-lG-VWg">
-                                                        <rect key="frame" x="8" y="8" width="343" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="9XP-lG-VWg" secondAttribute="trailing" constant="8" id="20k-ep-gDW"/>
-                                                    <constraint firstAttribute="bottom" secondItem="e6v-B9-7Oz" secondAttribute="bottom" constant="8" id="2vv-yA-Jua"/>
-                                                    <constraint firstItem="9XP-lG-VWg" firstAttribute="top" secondItem="5NC-yT-aTF" secondAttribute="top" constant="8" id="7T5-A8-QDG"/>
-                                                    <constraint firstItem="e6v-B9-7Oz" firstAttribute="leading" secondItem="5NC-yT-aTF" secondAttribute="leading" constant="8" id="81f-CE-bAH"/>
-                                                    <constraint firstAttribute="trailing" secondItem="e6v-B9-7Oz" secondAttribute="trailing" constant="8" id="RJE-mn-2aK"/>
-                                                    <constraint firstItem="9XP-lG-VWg" firstAttribute="leading" secondItem="5NC-yT-aTF" secondAttribute="leading" constant="8" id="qzG-Yk-9Sc"/>
-                                                </constraints>
-                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhM-di-CaX">
                                                 <rect key="frame" x="167" y="8" width="145" height="40"/>
                                                 <constraints>
@@ -193,6 +173,9 @@
                                                 <state key="normal" title="Call">
                                                     <color key="titleColor" red="0.1647058824" green="0.18039215689999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="callUserPressed:" destination="Wfy-iI-bgq" eventType="touchUpInside" id="FaA-Rv-dM4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,11 +186,8 @@
                                             <constraint firstItem="QhM-di-CaX" firstAttribute="centerY" secondItem="j4E-C5-p6c" secondAttribute="centerY" id="Fid-7X-ku3"/>
                                             <constraint firstItem="j4E-C5-p6c" firstAttribute="top" secondItem="bPi-PI-LeK" secondAttribute="top" constant="8" id="JjK-HN-ZFR"/>
                                             <constraint firstItem="j4E-C5-p6c" firstAttribute="leading" secondItem="bPi-PI-LeK" secondAttribute="leading" constant="15" id="ab6-df-p8e"/>
-                                            <constraint firstAttribute="trailing" secondItem="5NC-yT-aTF" secondAttribute="trailing" constant="8" id="hwD-te-Y9f"/>
                                             <constraint firstItem="3BV-fo-xxO" firstAttribute="centerY" secondItem="j4E-C5-p6c" secondAttribute="centerY" id="kt6-2E-duJ"/>
-                                            <constraint firstItem="5NC-yT-aTF" firstAttribute="top" secondItem="3BV-fo-xxO" secondAttribute="bottom" constant="8" id="pWq-FE-cqg"/>
                                             <constraint firstItem="QhM-di-CaX" firstAttribute="leading" secondItem="j4E-C5-p6c" secondAttribute="trailing" constant="7" id="pvK-nr-FJX"/>
-                                            <constraint firstItem="5NC-yT-aTF" firstAttribute="leading" secondItem="bPi-PI-LeK" secondAttribute="leading" constant="8" id="thO-Cm-YvC"/>
                                             <constraint firstAttribute="trailing" secondItem="3BV-fo-xxO" secondAttribute="trailing" constant="15" id="zFh-7k-oGk"/>
                                         </constraints>
                                     </view>
@@ -276,5 +256,5 @@
     <resources>
         <image name="slackbot" width="600" height="540"/>
     </resources>
-    <color key="tintColor" red="1" green="0.99321930810000003" blue="0.96765711190000003" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

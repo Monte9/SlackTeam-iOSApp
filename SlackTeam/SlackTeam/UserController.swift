@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class UserController: UIViewController {
 
@@ -47,10 +48,6 @@ class UserController: UIViewController {
         navigationBar!.shadowImage = UIImage()
         navigationBar!.translucent = true
         
-        //set navigation bar title with color
-//        navigationItem.title = "User Name"
-//        navigationBar!.titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 42/255, green: 46/255, blue: 49/255, alpha: 1), NSFontAttributeName: UIFont(name: "Lato-Black", size: 17)!]
-        
         messageButton.backgroundColor = UIColor.clearColor()
         messageButton.layer.cornerRadius = 5
         messageButton.layer.borderWidth = 1
@@ -74,8 +71,40 @@ class UserController: UIViewController {
         gradient.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor]
         gradient.locations = [0, 1]
         gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
+        gradient.endPoint = CGPoint(x: 0, y: 2)
         profileImageView.layer.insertSublayer(gradient, atIndex: 0)
+    }
+    
+    @IBAction func messageUserPressed(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Coming soon!", message:
+            "Message feature currently unavailable!", preferredStyle: UIAlertControllerStyle.Alert)
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) // vibration
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func callUserPressed(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Coming soon!", message:
+            "Call feature currently unavailable!", preferredStyle: UIAlertControllerStyle.Alert)
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) // vibration
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func moreInfoButtonPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "More Information", message: "", preferredStyle: .ActionSheet)
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) // vibration
+        
+        let firstAction = UIAlertAction(title: "Join date", style: .Default) { (alert: UIAlertAction!) -> Void in
+            print("View Join Date: coming soon!")
+        }
+        let secondAction = UIAlertAction(title: "Last online", style: .Default) { (alert: UIAlertAction!) -> Void in
+            print("View last online: coming soon!")
+        }
+        
+        alert.addAction(firstAction)
+        alert.addAction(secondAction)
+        presentViewController(alert, animated: true, completion:nil)
     }
     
 }
