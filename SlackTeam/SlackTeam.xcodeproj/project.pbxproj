@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B013AD1D6882EEC17DAF477E /* Pods_SlackTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9AF245B78993FB638FF235 /* Pods_SlackTeam.framework */; };
 		EC11424B1D8B9D5D00DBDBFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11424A1D8B9D5D00DBDBFF /* AppDelegate.swift */; };
 		EC11424D1D8B9D5D00DBDBFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC11424C1D8B9D5D00DBDBFF /* ViewController.swift */; };
 		EC1142501D8B9D5D00DBDBFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC11424E1D8B9D5D00DBDBFF /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E9AF245B78993FB638FF235 /* Pods_SlackTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlackTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6569F46A8A08F009F2F4750A /* Pods-SlackTeam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeam/Pods-SlackTeam.debug.xcconfig"; sourceTree = "<group>"; };
+		9C98EFA7DBB3CA893B01933F /* Pods-SlackTeam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlackTeam.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlackTeam/Pods-SlackTeam.release.xcconfig"; sourceTree = "<group>"; };
 		EC1142471D8B9D5D00DBDBFF /* SlackTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlackTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC11424A1D8B9D5D00DBDBFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC11424C1D8B9D5D00DBDBFF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B013AD1D6882EEC17DAF477E /* Pods_SlackTeam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288FBE356BF16396DDD46A54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6569F46A8A08F009F2F4750A /* Pods-SlackTeam.debug.xcconfig */,
+				9C98EFA7DBB3CA893B01933F /* Pods-SlackTeam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3E288E1D9F2F84356957F870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E9AF245B78993FB638FF235 /* Pods_SlackTeam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC11423E1D8B9D5D00DBDBFF = {
 			isa = PBXGroup;
 			children = (
 				EC1142491D8B9D5D00DBDBFF /* SlackTeam */,
 				EC1142481D8B9D5D00DBDBFF /* Products */,
+				288FBE356BF16396DDD46A54 /* Pods */,
+				3E288E1D9F2F84356957F870 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC1142591D8B9D5D00DBDBFF /* Build configuration list for PBXNativeTarget "SlackTeam" */;
 			buildPhases = (
+				FB691168C61516A2F8F1855F /* [CP] Check Pods Manifest.lock */,
 				EC1142431D8B9D5D00DBDBFF /* Sources */,
 				EC1142441D8B9D5D00DBDBFF /* Frameworks */,
 				EC1142451D8B9D5D00DBDBFF /* Resources */,
+				B7863B4304D8C97A9B0ED3AA /* [CP] Embed Pods Frameworks */,
+				348306042054D44C92CEF1B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		348306042054D44C92CEF1B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeam/Pods-SlackTeam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7863B4304D8C97A9B0ED3AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlackTeam/Pods-SlackTeam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB691168C61516A2F8F1855F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC1142431D8B9D5D00DBDBFF /* Sources */ = {
@@ -249,6 +324,7 @@
 		};
 		EC11425A1D8B9D5D00DBDBFF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6569F46A8A08F009F2F4750A /* Pods-SlackTeam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlackTeam/Info.plist;
@@ -261,6 +337,7 @@
 		};
 		EC11425B1D8B9D5D00DBDBFF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C98EFA7DBB3CA893B01933F /* Pods-SlackTeam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SlackTeam/Info.plist;
@@ -290,6 +367,7 @@
 				EC11425B1D8B9D5D00DBDBFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
