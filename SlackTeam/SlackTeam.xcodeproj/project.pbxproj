@@ -25,6 +25,7 @@
 		EC1142701D8BA45F00DBDBFF /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC1142661D8BA45F00DBDBFF /* Lato-Regular.ttf */; };
 		EC1142721D8BAA2700DBDBFF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142711D8BAA2700DBDBFF /* UserCell.swift */; };
 		EC1142741D8BB39A00DBDBFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142731D8BB39A00DBDBFF /* User.swift */; };
+		EC1142791D8BC03F00DBDBFF /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142781D8BC03F00DBDBFF /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		EC1142661D8BA45F00DBDBFF /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		EC1142711D8BAA2700DBDBFF /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		EC1142731D8BB39A00DBDBFF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC1142781D8BC03F00DBDBFF /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,13 +106,13 @@
 			isa = PBXGroup;
 			children = (
 				EC11424A1D8B9D5D00DBDBFF /* AppDelegate.swift */,
-				EC11424C1D8B9D5D00DBDBFF /* ViewController.swift */,
 				EC11424E1D8B9D5D00DBDBFF /* Main.storyboard */,
-				EC1142711D8BAA2700DBDBFF /* UserCell.swift */,
+				EC1142761D8BBAAD00DBDBFF /* Views */,
+				EC1142751D8BBA9E00DBDBFF /* Controllers */,
+				EC1142771D8BBAB700DBDBFF /* Models */,
 				EC1142511D8B9D5D00DBDBFF /* Assets.xcassets */,
 				EC1142531D8B9D5D00DBDBFF /* LaunchScreen.storyboard */,
 				EC1142561D8B9D5D00DBDBFF /* Info.plist */,
-				EC1142731D8BB39A00DBDBFF /* User.swift */,
 			);
 			path = SlackTeam;
 			sourceTree = "<group>";
@@ -131,6 +133,31 @@
 			);
 			name = "Supporting Files";
 			path = SlackTeam;
+			sourceTree = "<group>";
+		};
+		EC1142751D8BBA9E00DBDBFF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC11424C1D8B9D5D00DBDBFF /* ViewController.swift */,
+				EC1142781D8BC03F00DBDBFF /* UserController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EC1142761D8BBAAD00DBDBFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC1142711D8BAA2700DBDBFF /* UserCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EC1142771D8BBAB700DBDBFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC1142731D8BB39A00DBDBFF /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +294,7 @@
 			files = (
 				EC1142741D8BB39A00DBDBFF /* User.swift in Sources */,
 				EC11424D1D8B9D5D00DBDBFF /* ViewController.swift in Sources */,
+				EC1142791D8BC03F00DBDBFF /* UserController.swift in Sources */,
 				EC11424B1D8B9D5D00DBDBFF /* AppDelegate.swift in Sources */,
 				EC1142721D8BAA2700DBDBFF /* UserCell.swift in Sources */,
 			);
