@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 let token = "xoxp-4698769766-4698769768-18910479235-8fa82d53b2"
 
@@ -26,6 +27,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //delegate
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Display HUD right before API request is made
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         //make API call and fetch user data
         makeAPICall()
@@ -66,6 +70,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Connection to API successful!")
                     self.users = User.users((json["members"] as? [NSDictionary])!)
                     self.tableView.reloadData()
+                    
+                    // Hide HUD once network request comes back (must be done on main UI thread)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                 }
                 else {
                     print("ERROR: \(json["error"] as! String)")
@@ -78,6 +85,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let user = users![indexPath!.row]
+        
+        let userController = segue.destinationViewController as! UserController
+        
+        userController.user = user
     }
 
 }

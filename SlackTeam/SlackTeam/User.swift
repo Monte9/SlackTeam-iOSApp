@@ -18,8 +18,12 @@ class User: NSObject {
     var title: String?
     var skype: String?
     var phone: String?
+    var userName: String?
     
     init(dictionary: NSDictionary) {
+        
+        self.userName = dictionary["name"] as? String
+        
         if let profile = dictionary["profile"] as? NSDictionary {
             if let imageOriginalString = profile["image_original"] as? String {
                 imageOriginalUrl = NSURL(string: imageOriginalString)!
