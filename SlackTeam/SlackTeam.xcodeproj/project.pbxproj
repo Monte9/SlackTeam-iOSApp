@@ -24,8 +24,8 @@
 		EC11426F1D8BA45F00DBDBFF /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC1142651D8BA45F00DBDBFF /* Lato-LightItalic.ttf */; };
 		EC1142701D8BA45F00DBDBFF /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC1142661D8BA45F00DBDBFF /* Lato-Regular.ttf */; };
 		EC1142721D8BAA2700DBDBFF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142711D8BAA2700DBDBFF /* UserCell.swift */; };
-		EC1142741D8BB39A00DBDBFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142731D8BB39A00DBDBFF /* User.swift */; };
 		EC1142791D8BC03F00DBDBFF /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1142781D8BC03F00DBDBFF /* UserController.swift */; };
+		EC4E06D51D8D0C97004F8F94 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4E06D41D8D0C97004F8F94 /* User.swift */; };
 		ECFD00781D8CB29B00C9C9EA /* UserDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECFD00771D8CB29B00C9C9EA /* UserDetailView.xib */; };
 		ECFD007A1D8CB39E00C9C9EA /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFD00791D8CB39E00C9C9EA /* UserDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -52,8 +52,8 @@
 		EC1142651D8BA45F00DBDBFF /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		EC1142661D8BA45F00DBDBFF /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		EC1142711D8BAA2700DBDBFF /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		EC1142731D8BB39A00DBDBFF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC1142781D8BC03F00DBDBFF /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		EC4E06D41D8D0C97004F8F94 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECFD00771D8CB29B00C9C9EA /* UserDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailView.xib; sourceTree = "<group>"; };
 		ECFD00791D8CB39E00C9C9EA /* UserDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +161,7 @@
 		EC1142771D8BBAB700DBDBFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EC1142731D8BB39A00DBDBFF /* User.swift */,
+				EC4E06D41D8D0C97004F8F94 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -299,9 +299,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC1142741D8BB39A00DBDBFF /* User.swift in Sources */,
 				EC11424D1D8B9D5D00DBDBFF /* ViewController.swift in Sources */,
 				EC1142791D8BC03F00DBDBFF /* UserController.swift in Sources */,
+				EC4E06D51D8D0C97004F8F94 /* User.swift in Sources */,
 				EC11424B1D8B9D5D00DBDBFF /* AppDelegate.swift in Sources */,
 				ECFD007A1D8CB39E00C9C9EA /* UserDetailView.swift in Sources */,
 				EC1142721D8BAA2700DBDBFF /* UserCell.swift in Sources */,
