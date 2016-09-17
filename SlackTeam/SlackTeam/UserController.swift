@@ -19,23 +19,17 @@ class UserController: UIViewController {
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var moreInfoButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
     
     var user: User?
+    var aboutUser: [String:String]? = ["title":"What I do", "skype":"Skype", "phone":"Phone", "email":"Email", "timezone": "Timezone"]
+    
+    static var height = 340
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 50)
-
-        fullNameLabel.text = user?.realName
-        fullNameLabel.font = UIFont(name: "Lato-Bold", size: 18)
-        
-        usernameLabel.text = "@\(user!.userName!)"
-        usernameLabel.font = UIFont(name: "Lato-Regular", size: 15)
-        
-        if let profileImage = user?.imageOriginalUrl {
-            profileImageView.af_setImageWithURL(profileImage)
-        }
+        setupView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,6 +67,79 @@ class UserController: UIViewController {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 0, y: 2)
         profileImageView.layer.insertSublayer(gradient, atIndex: 0)
+        
+        UserController.height = 340
+    }
+    
+    func setupView() {
+        setupHeaderInfo()
+        
+        setupBodyInfo()
+    }
+    
+    func setupHeaderInfo() {
+        fullNameLabel.text = user?.realName
+        fullNameLabel.font = UIFont(name: "Lato-Bold", size: 18)
+        
+        usernameLabel.text = "@\(user!.userName!)"
+        usernameLabel.font = UIFont(name: "Lato-Regular", size: 15)
+        
+        if let profileImage = user?.imageOriginalUrl {
+            profileImageView.af_setImageWithURL(profileImage)
+        }
+    }
+    
+    func setupBodyInfo() {
+        
+        if let title = (user?.title) {
+            displayUserDetailView("title", value: title)
+            displayLine()
+        }
+        
+        if let timezone = (user?.timezone) {
+            displayUserDetailView("timezone", value: timezone)
+            displayLine()
+        }
+        
+        if let phone = (user?.phone) {
+            displayUserDetailView("phone", value: phone)
+            displayLine()
+        }
+        
+        if let email = (user?.email) {
+            displayUserDetailView("email", value: email)
+            displayLine()
+        }
+        
+        if let skype = (user?.skype) {
+            displayUserDetailView("skype", value: skype)
+        }
+        
+    }
+    
+    func displayUserDetailView(detail: String, value: String) {
+        if let viewOne = NSBundle.mainBundle().loadNibNamed("UserDetailView", owner: self, options: nil).first as? UserDetailView {
+            viewOne.center = CGPointMake(view.bounds.width/2, CGFloat(UserController.height))
+            
+            viewOne.detailDescriptionLabel.text = aboutUser![detail]
+            viewOne.detailDescriptionLabel.font = UIFont(name: "Lato-Light", size: 14)
+            
+            viewOne.detailAboutLabel.text = value
+            viewOne.detailAboutLabel.font = UIFont(name: "Lato-Regular", size: 16)
+            
+            scrollView.addSubview(viewOne)
+        }
+    }
+    
+    func displayLine() {
+        UserController.height += 35
+        
+        let lineView = UIView(frame: CGRectMake(15,CGFloat(UserController.height),view.bounds.width,1.0))
+        lineView.layer.borderWidth = 1.0
+        lineView.layer.borderColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 211/255).CGColor
+        scrollView.addSubview(lineView)
+        
+        UserController.height += 35
     }
     
     @IBAction func messageUserPressed(sender: AnyObject) {

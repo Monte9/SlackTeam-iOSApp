@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //make navigation bar transparent
         navigationBar!.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar!.shadowImage = nil
         navigationBar!.translucent = true
 
         //set navigation bar title with color

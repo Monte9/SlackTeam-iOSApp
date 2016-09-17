@@ -19,10 +19,13 @@ class User: NSObject {
     var skype: String?
     var phone: String?
     var userName: String?
+    var email: String?
+    var timezone: String?
     
     init(dictionary: NSDictionary) {
         
         self.userName = dictionary["name"] as? String
+        self.timezone = dictionary["tz_label"] as? String
         
         if let profile = dictionary["profile"] as? NSDictionary {
             if let imageOriginalString = profile["image_original"] as? String {
@@ -43,6 +46,7 @@ class User: NSObject {
             self.title = profile["title"] as? String
             self.skype = profile["skype"] as? String
             self.phone = profile["phone"] as? String
+            self.email = profile["email"] as? String
         }
     }
     
