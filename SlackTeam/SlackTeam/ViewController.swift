@@ -79,7 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier(
             "UserCell", forIndexPath: indexPath) as! UserCell
 
-        cell.user = users![indexPath.row]
+        //cell.user = users![indexPath.row]
+        cell.profileImageView.af_setImageWithURL(NSURL(string: "https://avatars.slack-edge.com/2015-05-01/4698799712_e1784211d2146055eb02_original.jpg")!)
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         return cell
@@ -100,6 +101,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 else {
                     print("ERROR: \(json["error"] as! String)")
                 }
+            } else {
+                // Hide HUD once network request comes back (must be done on main UI thread)
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                
+                let alertController = UIAlertController(title: "Error!", message:
+                    "Network request failed. Check your internet connection", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         }
     }
