@@ -33,7 +33,13 @@ class UserCell: UITableViewCell {
             userTitleLabel.text = user.title
             userTitleLabel.font = UIFont(name: "Lato-Light", size: 11)
             
-            if let profileImage = user.imageOriginalUrl {
+            if (offlineMode == true) {
+                if let imgData = user.imageData {
+                    profileImageView.image = UIImage(data: imgData)
+                } else if let imgData = user.imageData32 {
+                    profileImageView.image = UIImage(data: imgData)
+                }
+            } else if let profileImage = user.imageOriginalUrl {
                 profileImageView.af_setImageWithURL(NSURL(string: profileImage)!)
             }
         }

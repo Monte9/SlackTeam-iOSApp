@@ -13,11 +13,14 @@ import RealmSwift
 import Realm
 
 let token = "xoxp-4698769766-4698769768-18910479235-8fa82d53b2"
+var offlineMode = false
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //outlets
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var testImageView: UIImageView!
     
     //vars
     var users: [User]? = []
@@ -38,6 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Realm db path: DEBUG
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        
         let dbUsers = realmObject.objects(User.self)
         
         if dbUsers.count > 0 {
@@ -50,10 +54,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             // Hide HUD once network request comes back (must be done on main UI thread)
             MBProgressHUD.hideHUDForView(self.view, animated: true)
+            
+            //set offline mode to true to load image from NSData
+            offlineMode = true
         } else {
             //make API call and save data in the realm db
             makeAPICall()
         }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -64,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //make navigation bar transparent
         navigationBar!.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationBar!.shadowImage = nil
-        navigationBar!.translucent = true
+        navigationBar!.translucent = false
 
         //set navigation bar title with color
         navigationItem.title = "iOS Exercise"
@@ -79,8 +87,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier(
             "UserCell", forIndexPath: indexPath) as! UserCell
 
-        //cell.user = users![indexPath.row]
-        cell.profileImageView.af_setImageWithURL(NSURL(string: "https://avatars.slack-edge.com/2015-05-01/4698799712_e1784211d2146055eb02_original.jpg")!)
+        cell.user = users![indexPath.row]
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         return cell
@@ -109,6 +116,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     "Network request failed. Check your internet connection", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
+                
+                //set offline mode to true to load image from NSData
+                offlineMode = true
             }
         }
     }
@@ -118,13 +128,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         for dictionary in array {
             let user = newUser(dictionary)
             
+            if let profileImage = user.imageOriginalUrl {
+                if let url = NSURL(string: profileImage) {
+                    if let imgData = NSData(contentsOfURL: url) {
+                        user.imageData = imgData
+                    }
+                }
+            }
+            if let profileImage32 = user.image32Url {
+                if let url = NSURL(string: profileImage32) {
+                    if let imgData = NSData(contentsOfURL: url) {
+                        user.imageData32 = imgData
+                    }
+                }
+            }
+            
             //write the settings object to db for persistence
             try! realmObject.write() {
                 realmObject.add(user)
                 print("New User saved with name: \(user.realName)")
+                users.append(user)
             }
-            
-            users.append(user)
         }
         return users
     }

@@ -22,5 +22,7 @@ class User: Object {
     dynamic var userName: String? = nil
     dynamic var email: String? = nil
     dynamic var timezone: String? = nil
+    dynamic var imageData: NSData? = nil
+    dynamic var imageData32: NSData? = nil
     
 }

@@ -84,7 +84,13 @@ class UserController: UIViewController {
         usernameLabel.text = "@\(user!.userName!)"
         usernameLabel.font = UIFont(name: "Lato-Regular", size: 15)
         
-        if let profileImage = user?.imageOriginalUrl {
+        if (offlineMode == true) {
+            if let imgData = user!.imageData {
+                profileImageView.image = UIImage(data: imgData)
+            } else if let imgData = user!.imageData32 {
+                profileImageView.image = UIImage(data: imgData)
+            }
+        } else if let profileImage = user?.imageOriginalUrl {
             profileImageView.af_setImageWithURL(NSURL(string: profileImage)!)
         }
     }
