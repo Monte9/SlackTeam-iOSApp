@@ -34,7 +34,7 @@ class UserCell: UITableViewCell {
             userTitleLabel.font = UIFont(name: "Lato-Light", size: 11)
             
             if let profileImage = user.imageOriginalUrl {
-                profileImageView.af_setImageWithURL(profileImage)
+                profileImageView.af_setImageWithURL(NSURL(string: profileImage)!)
             }
         }
     }

@@ -85,7 +85,7 @@ class UserController: UIViewController {
         usernameLabel.font = UIFont(name: "Lato-Regular", size: 15)
         
         if let profileImage = user?.imageOriginalUrl {
-            profileImageView.af_setImageWithURL(profileImage)
+            profileImageView.af_setImageWithURL(NSURL(string: profileImage)!)
         }
     }
     

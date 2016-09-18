@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import MBProgressHUD
+import RealmSwift
+import Realm
 
 let token = "xoxp-4698769766-4698769768-18910479235-8fa82d53b2"
 
@@ -20,6 +22,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //vars
     var users: [User]? = []
     
+    // instance of Realm object
+    let realmObject = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +35,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Display HUD right before API request is made
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        //make API call and fetch user data
-        makeAPICall()
+        //Realm db path: DEBUG
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        let dbUsers = realmObject.objects(User.self)
+        
+        if dbUsers.count > 0 {
+            print("Found users in DB")
+            var newUsersArray = [User]()
+            for user in dbUsers {
+                newUsersArray.append(user)
+            }
+            users = newUsersArray
+            
+            // Hide HUD once network request comes back (must be done on main UI thread)
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+        } else {
+            //make API call and save data in the realm db
+            makeAPICall()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -69,7 +90,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let json = response.result.value {
                 if (json["ok"] as! Bool) {
                     print("Connection to API successful!")
-                    self.users = User.users((json["members"] as? [NSDictionary])!)
+                    
+                    self.users = self.saveUsers((json["members"] as? [NSDictionary])!)
                     self.tableView.reloadData()
                     
                     // Hide HUD once network request comes back (must be done on main UI thread)
@@ -80,6 +102,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+    }
+    
+    func saveUsers(array: [NSDictionary]) -> [User] {
+        var users = [User]()
+        for dictionary in array {
+            let user = newUser(dictionary)
+            
+            //write the settings object to db for persistence
+            try! realmObject.write() {
+                realmObject.add(user)
+                print("New User saved with name: \(user.realName)")
+            }
+            
+            users.append(user)
+        }
+        return users
+    }
+    
+    func newUser(dictionary: NSDictionary) -> User {
+        
+        let user = User()
+        
+        user.userName = dictionary["name"] as? String
+        user.timezone = dictionary["tz_label"] as? String
+        
+        if let profile = dictionary["profile"] as? NSDictionary {
+            if let imageOriginalString = profile["image_original"] as? String {
+                user.imageOriginalUrl = imageOriginalString
+            } else {
+                user.imageOriginalUrl = nil
+            }
+            
+            if let image32String = profile["image_32"] as? String {
+                user.image32Url = image32String
+            } else {
+                user.image32Url = nil
+            }
+            
+            user.firstName = profile["first_name"] as? String
+            user.lastName = profile["last_name"] as? String
+            user.realName = profile["real_name"] as? String
+            user.title = profile["title"] as? String
+            user.skype = profile["skype"] as? String
+            user.phone = profile["phone"] as? String
+            user.email = profile["email"] as? String
+        }
+        
+        return user
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
