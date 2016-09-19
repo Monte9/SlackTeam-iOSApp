@@ -138,10 +138,10 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPi-PI-LeK">
                                         <rect key="frame" x="0.0" y="253" width="375" height="414"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4E-C5-p6c">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4E-C5-p6c">
                                                 <rect key="frame" x="15" y="8" width="145" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="145" id="P0p-MU-o5c"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="121" id="P0p-MU-o5c"/>
                                                     <constraint firstAttribute="height" constant="40" id="RlZ-wM-JPU"/>
                                                 </constraints>
                                                 <state key="normal" title="Message">
@@ -164,11 +164,11 @@
                                                     <action selector="moreInfoButtonPressed:" destination="Wfy-iI-bgq" eventType="touchUpInside" id="80F-g1-70g"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhM-di-CaX">
-                                                <rect key="frame" x="167" y="8" width="145" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhM-di-CaX">
+                                                <rect key="frame" x="168" y="8" width="144" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2el-6a-eH8"/>
-                                                    <constraint firstAttribute="width" constant="145" id="4gI-pA-nFq"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="121" id="4gI-pA-nFq"/>
                                                 </constraints>
                                                 <state key="normal" title="Call">
                                                     <color key="titleColor" red="0.1647058824" green="0.18039215689999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,11 +183,12 @@
                                         <constraints>
                                             <constraint firstItem="QhM-di-CaX" firstAttribute="top" secondItem="bPi-PI-LeK" secondAttribute="top" constant="8" id="4fI-yv-enz"/>
                                             <constraint firstItem="3BV-fo-xxO" firstAttribute="top" secondItem="bPi-PI-LeK" secondAttribute="top" constant="8" id="8Ia-Bs-3sn"/>
+                                            <constraint firstItem="3BV-fo-xxO" firstAttribute="leading" secondItem="QhM-di-CaX" secondAttribute="trailing" constant="8" id="AgQ-hc-HjY"/>
                                             <constraint firstItem="QhM-di-CaX" firstAttribute="centerY" secondItem="j4E-C5-p6c" secondAttribute="centerY" id="Fid-7X-ku3"/>
                                             <constraint firstItem="j4E-C5-p6c" firstAttribute="top" secondItem="bPi-PI-LeK" secondAttribute="top" constant="8" id="JjK-HN-ZFR"/>
                                             <constraint firstItem="j4E-C5-p6c" firstAttribute="leading" secondItem="bPi-PI-LeK" secondAttribute="leading" constant="15" id="ab6-df-p8e"/>
                                             <constraint firstItem="3BV-fo-xxO" firstAttribute="centerY" secondItem="j4E-C5-p6c" secondAttribute="centerY" id="kt6-2E-duJ"/>
-                                            <constraint firstItem="QhM-di-CaX" firstAttribute="leading" secondItem="j4E-C5-p6c" secondAttribute="trailing" constant="7" id="pvK-nr-FJX"/>
+                                            <constraint firstItem="QhM-di-CaX" firstAttribute="leading" secondItem="j4E-C5-p6c" secondAttribute="trailing" constant="8" id="pvK-nr-FJX"/>
                                             <constraint firstAttribute="trailing" secondItem="3BV-fo-xxO" secondAttribute="trailing" constant="15" id="zFh-7k-oGk"/>
                                         </constraints>
                                     </view>
