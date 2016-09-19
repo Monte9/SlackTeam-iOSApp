@@ -24,7 +24,7 @@ class UserController: UIViewController {
     var user: User?
     var aboutUser: [String:String]? = ["title":"What I do", "skype":"Skype", "phone":"Phone", "email":"Email", "timezone": "Timezone"]
     
-    static var height = 340
+    static var height = 310
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +61,14 @@ class UserController: UIViewController {
         moreInfoButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 17)
         
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.frame = profileImageView.frame
+        gradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 253)
         gradient.colors = [UIColor.clearColor().CGColor, UIColor.blackColor().CGColor]
         gradient.locations = [0, 1]
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 0, y: 2)
         profileImageView.layer.insertSublayer(gradient, atIndex: 0)
         
-        UserController.height = 340
+        UserController.height = 310
     }
     
     func setupView() {
@@ -125,7 +125,9 @@ class UserController: UIViewController {
     
     func displayUserDetailView(detail: String, value: String) {
         if let viewOne = NSBundle.mainBundle().loadNibNamed("UserDetailView", owner: self, options: nil).first as? UserDetailView {
-            viewOne.center = CGPointMake(view.bounds.width/2, CGFloat(UserController.height))
+            viewOne.frame.origin.x = 15
+            viewOne.frame.origin.y = CGFloat(UserController.height)
+            //viewOne.center = CGPointMake(view.bounds.width/2, CGFloat(UserController.height))
             
             viewOne.detailDescriptionLabel.text = aboutUser![detail]
             viewOne.detailDescriptionLabel.font = UIFont(name: "Lato-Light", size: 14)
@@ -138,14 +140,14 @@ class UserController: UIViewController {
     }
     
     func displayLine() {
-        UserController.height += 35
+        UserController.height += 65
         
         let lineView = UIView(frame: CGRectMake(15,CGFloat(UserController.height),view.bounds.width,1.0))
         lineView.layer.borderWidth = 1.0
         lineView.layer.borderColor = UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 211/255).CGColor
         scrollView.addSubview(lineView)
         
-        UserController.height += 35
+        UserController.height += 5
     }
     
     @IBAction func messageUserPressed(sender: AnyObject) {
