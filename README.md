@@ -21,12 +21,12 @@
 
 3. On the individual profile page, you should show the person's picture, username, real name, and title. Other profile fields are optional.
 
-4. Send me an email with a zip file containing the repo when you've completed the exercise and we will review it as soon as possible.
+4. Send an email with a zip file containing the repo when you've completed the exercise and we will review it as soon as possible.
+
+## App Demo
+
+![SlackTeam working app demo](SlackTeam.gif)
 
 ## Documentation:
 
 https://api.slack.com/methods/users.list
-
-Resources:
-
-http://www.spotlessicode.com/blog/posts/custom-font-import-uifont-family-names-list-ios-objc
